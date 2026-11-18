@@ -1,0 +1,145 @@
+@import url('https://fonts.cdnfonts.com/css/pricedown');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #0b0c10;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#ui-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.hud {
+  pointer-events: auto;
+  background: rgba(11, 12, 16, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: inline-block;
+  max-width: 400px;
+}
+
+.gta-title {
+  font-family: 'Pricedown', sans-serif;
+  font-size: 3rem;
+  margin: 0 0 10px 0;
+  color: #fff;
+  text-shadow: 2px 2px 0 #000, 
+               -1px -1px 0 #000,
+               1px -1px 0 #000,
+               -1px 1px 0 #000,
+               1px 1px 0 #000;
+  letter-spacing: 2px;
+}
+
+.hud-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+.stat-label {
+  font-weight: 600;
+  color: #fff;
+  margin-right: 6px;
+}
+
+/* Override MapLibre controls to fit the dark theme */
+.maplibregl-ctrl-group {
+  background-color: rgba(11, 12, 16, 0.85) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.maplibregl-ctrl-group button {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.maplibregl-ctrl-icon {
+  filter: invert(1) !important;
+}
+
+.player-blip {
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 28px solid #ffffff;
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.8));
+  transform: translateY(-14px) rotate(35deg);
+  position: relative;
+  z-index: 100;
+}
+
+.poi-icon {
+  width: 28px;
+  height: 28px;
+  background-color: #333;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.8);
+  cursor: pointer;
+  z-index: 50;
+  transition: transform 0.2s ease;
+}
+
+.poi-icon:hover {
+  transform: scale(1.2);
+}
+
+.poi-icon.safehouse {
+  background-color: #37b752; /* GTA Green */
+  color: white;
+}
+
+.poi-icon.ammunation {
+  background-color: #3b3b3b;
+  border-color: #ff4500;
+}
+
+.poi-icon.lscustoms {
+  background-color: #eeeeee;
+  border-color: #000;
+  font-size: 16px;
+}
+
+.poi-icon.waypoint {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  box-shadow: none;
+  filter: drop-shadow(0 0 2px #fff);
+}
